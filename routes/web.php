@@ -11,6 +11,12 @@
 |
 */
 
+use App\Events\PusherExampleEvent;
+
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return view('index');
+});
+
+$router->get('/gamedata/test', function () use ($router) {
+    event(new PusherExampleEvent('hello world'));
 });
